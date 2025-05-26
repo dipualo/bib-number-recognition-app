@@ -1,7 +1,7 @@
 .venv
 __pycache__
 static/carpetas_imagenes/enviadas/*
-static/carpetas_imagenes/enviadas/.gitkeep
+!static/carpetas_imagenes/enviadas/.gitkeep
 static/carpetas_imagenes/anotadas/*
-static/carpetas_imagenes/anotadas/.gitkeep
+!static/carpetas_imagenes/anotadas/.gitkeep
 .dockerignore
