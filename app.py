@@ -18,10 +18,10 @@ with app.app_context():
     db.create_all()
 
 # Ruta a donde se almacenan las imagenes que se cargan
-upload_directory='static/uploads'
+ruta_imagenes_enviadas='static/carpetas_imagenes/enviadas'
 
-for filename in os.listdir(upload_directory):
-    file_path = os.path.join(upload_directory, filename)
+for filename in os.listdir(ruta_imagenes_enviadas):
+    file_path = os.path.join(ruta_imagenes_enviadas, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
             os.unlink(file_path)  # Borra archivos o enlaces simbólicos
@@ -33,10 +33,10 @@ for filename in os.listdir(upload_directory):
 reconocedor_dorsales = ReconocedorDorsales()
 
 # Ruta a donde se almacenan las imagenes resultado
-results_directory='static/results'
+ruta_imagenes_anotadas='static/carpetas_imagenes/anotadas'
 
-for filename in os.listdir(results_directory):
-    file_path = os.path.join(results_directory, filename)
+for filename in os.listdir(ruta_imagenes_anotadas):
+    file_path = os.path.join(ruta_imagenes_anotadas, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
             os.unlink(file_path)  # Borra archivos o enlaces simbólicos
@@ -46,11 +46,11 @@ for filename in os.listdir(results_directory):
         print(f'Error eliminando {file_path}: {e}')
 
 # Si no existe ese path lo crea
-if(not os.path.exists(upload_directory)):
-    os.mkdir(upload_directory)
+if(not os.path.exists(ruta_imagenes_enviadas)):
+    os.mkdir(ruta_imagenes_enviadas)
 
-if(not os.path.exists(results_directory)):
-    os.mkdir(results_directory)
+if(not os.path.exists(ruta_imagenes_anotadas)):
+    os.mkdir(ruta_imagenes_anotadas)
 
 @app.route('/')
 def index():
@@ -68,14 +68,14 @@ def buscar_imagenes():
 
 @app.route('/ver_imagenes')
 def ver_imagenes():
-    imagenes = os.listdir(results_directory)
+    imagenes = os.listdir(ruta_imagenes_anotadas)
     return render_template('ver_imagenes.html', imagenes=imagenes)
 
 @app.route('/borrar', methods=['POST'])
 def borrar():
     seleccionadas = request.form.getlist('imagenes_a_borrar')
     for imagen in seleccionadas:
-        ruta = os.path.join(results_directory, imagen)
+        ruta = os.path.join(ruta_imagenes_anotadas, imagen)
         if os.path.exists(ruta):
             os.remove(ruta)
 
@@ -105,7 +105,7 @@ def enviar_imagenes():
 
             filename = archivo.filename
             try:
-                cv2.imwrite("./static/uploads/"+filename, imagen)
+                cv2.imwrite("./static/carpetas_imagenes/enviadas/"+filename, imagen)
             except Exception as e:
                 print(f'Ocurrió un error al guardar la imagen: {e}')
             
@@ -123,7 +123,7 @@ def enviar_imagenes():
 
             resultado_filename = f'prediction_{filename}'
             try:
-                cv2.imwrite("./static/results/"+resultado_filename, img_anotada)
+                cv2.imwrite("./static/carpetas_imagenes/anotadas/"+resultado_filename, img_anotada)
             except Exception as e:
                 print(f'Ocurrió un error al guardar la imagen: {e}')
         

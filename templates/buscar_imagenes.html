@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Resultado</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_buscar_imagenes.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_buscar_imagenes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
     
 </head>
 <body>
@@ -24,7 +24,7 @@
     </div>
     {% if images_with_that_bib%}
         {% for image_bib in images_with_that_bib %}
-            <img src="{{ url_for('static', filename = 'uploads/'+image_bib.image) }}" alt="Imagen">
+            <img src="{{ url_for('static', filename = 'carpetas_imagenes/enviadas/'+image_bib.image) }}" alt="Imagen">
         {% endfor %}
     {% elif query%}
         <p>No se encontraron imagenes con ese numero de dorsal.</p>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Galería de Imágenes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_comun.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_ver_imagenes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_ver_imagenes.css') }}">
 </head>
 <body>
     
@@ -19,7 +19,7 @@
     <form method="POST" action="/borrar">
         {% for imagen in imagenes %}
         <div class="imagen">
-            <img src="{{ url_for('static', filename='results/' + imagen) }}" alt="Imagen">
+            <img src="{{ url_for('static', filename='carpetas_imagenes/anotadas/' + imagen) }}" alt="Imagen">
             <label>
                 <input type="checkbox" name="imagenes_a_borrar" value="{{ imagen }}">
                 Borrar
