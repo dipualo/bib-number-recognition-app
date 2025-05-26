@@ -1,0 +1,31 @@
+.imagen {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+img {
+    max-width: 28em;
+    height: auto;
+    display: block;
+}
+
+#enviar_imagenes, #buscar_imagenes{
+    margin: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#enlaces{
+    margin: 20px;
+}
+
+
+#imagenes_a_borrar{
+    text-align: center;
+
+}
+
+#eliminar_seleccionadas{
+    text-align: center;
+}

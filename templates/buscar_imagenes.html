@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_buscar_imagenes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo_comun.css') }}">
+    
+</head>
+<body>
+    
+    <div id="cabecera">
+        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="Logo UVA">
+        <h1>Busqueda por dorsales</h1>
+    </div>    
+    
+    <form method="GET" action="/buscar_imagenes" id = "busqueda">
+        <input id = "buscar_dorsal"type="int" name="query" placeholder="Buscar por dorsal" value="{{ request.args.get('query', '') }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div id = "enlaces">
+        <a id="cargar_imagenes" href = {{ url_for('enviar_imagenes')}}>Enviar imágenes</a>
+        <a id="ver_imagenes" href = {{ url_for('ver_imagenes')}}>Ver predicciones</a>
+    </div>
+    {% if images_with_that_bib%}
+        {% for image_bib in images_with_that_bib %}
+            <img src="{{ url_for('static', filename = 'uploads/'+image_bib.image) }}" alt="Imagen">
+        {% endfor %}
+    {% elif query%}
+        <p>No se encontraron imagenes con ese numero de dorsal.</p>
+    {% else %}
+        <p>Busca las imagenes por el número de dorsal</p>
+    {% endif %}
+    <p>Se observan los siguientes imagenes con los numeros de los dorsales <br> {% for image_bib in images_bibs %}  <li>{{ image_bib.image }} ({{ image_bib.bib_number }})</li>{% endfor %}</p>
+    <br><br>
+
+</body>
+</html>

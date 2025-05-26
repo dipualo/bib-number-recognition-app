@@ -1,0 +1,111 @@
+#busqueda{
+    width: 80%;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buscar_dorsal{
+    height: 25px;
+    width: 40%;
+}
+
+#boton_cancelar {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #e74c3c;
+}
+
+#error-mensaje {
+    color: red;
+}
+
+#exito-mensaje {
+    color: green;
+}
+
+#error-mensaje, #exito-mensaje, #estado-mensaje {
+    display: none;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+#cajagrande {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-top: 40px;
+    width: 800px;
+    text-align: center;
+}
+
+#archivo {
+    border: 3px dashed #ccc;
+    border-radius: 19px;
+    padding: 30px 20px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, background-color 0.3s;
+    min-height: 300px;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+#archivo.dragover {
+    border-color: #3498db;
+    background-color: #ecf7ff;
+}
+
+#input {
+    display: none;
+}
+
+#preview-container {
+    width: 100%;
+    max-width: 780px;
+    height: 430px; /* altura fija para contener imágenes */
+    display: flex;
+    flex-direction: row; 
+    align-items: center;         
+    overflow-x: auto;           
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.preview-item {
+    max-height: 70%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-contenedor {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #333;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: girar 1s linear infinite;
+    margin: 20px auto;
+  }
+  
+  @keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

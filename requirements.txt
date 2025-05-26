@@ -1,0 +1,7 @@
+opencv-python
+numpy
+shapely
+paddleocr == 2.10
+flask
+flask_sqlalchemy
+supervision
