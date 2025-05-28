@@ -35,6 +35,7 @@ git clone https://github.com/dipualo/app_reconocimiento_dorsales.git
 cd app_reconocimiento_dorsales
 docker build -t app_reconocedor_dorsales .
 docker run -it --rm app_reconocedor_dorsales
+```
 
 ## Autor y contacto
 
