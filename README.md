@@ -22,19 +22,21 @@ parciales.
 Se ha utilizado utiliza para crear el modelo de reconocimiento de dorsales 935 imágenes con 1627 dorsales. Este modelo se ha creado usando YOLOv11n y paddleOCR y
 se alcanza un valor de F1-score de 0.828 en los conjuntos de test de un 3 k-fold. 
 
-## Uso de la aplicación
+## Requisitos
 
-Esta aplición permite de una manera sencilla comprobar como funciona el reconocedor de dorsales desarrollado en el TFG.
+- Tener [Docker](https://www.docker.com/) instalado.
 
-Para usarla, primero es necesario tener Docker instalado y realizar los siguiente pasos. 
+## Uso
 
-git clone https://github.com/dipualo app_reconocimiento_dorsales.git
-cd app_reconocedor dorsales
-docker build -t app_reconocedor_dorsales
+Sigue los siguientes pasos para clonar el repositorio, construir la imagen de Docker y ejecutar la aplicación:
+
+```bash
+git clone https://github.com/dipualo/app_reconocimiento_dorsales.git
+cd app_reconocimiento_dorsales
+docker build -t app_reconocedor_dorsales .
 docker run -it --rm app_reconocedor_dorsales
 
-## Autor y contacto 
+## Autor y contacto
 
-Autor: Diego de la Puente Alonso
-Correo electrónico: diego@delapuente.es
-Correo electrónico: diego@delapunete.es
+**Autor:** Diego de la Puente Alonso  
+**Correo electrónico:** [diego@delapuente.es](mailto:diego@delapuente.es)
