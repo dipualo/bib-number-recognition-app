@@ -9,11 +9,13 @@ tamaños y colores, con un número identificativo y con formato variado que se u
 a los participantes en eventos deportivos, especialmente en carreras. Todo esto con el objetivo de
 saber que el deportista está inscrito en la competición y facilitar la creación de clasificaciones de
 los participantes.
+
 En este trabajo, mediante Visión por Computadora, se buscará detectar y reconocer dorsales.
 Esto se hará explorando modelos de detección de objetos como YOLO y distintos OCR para
 reconocer la información alfanumérica del dorsal.
+
 El objetivo principal de este trabajo es desarrollar una aplicación capaz de clasificar imágenes de
-competiciones deportivas, facilitando así la localización de fotografías dentro de grandes álbumes.
+competiciones deportivas mediante , facilitando así la localización de fotografías dentro de grandes álbumes.
 Así mismo, al disponer de la fecha y hora de la foto, se puede usar para confeccionar clasificaciones
 parciales.
 
