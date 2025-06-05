@@ -38,7 +38,7 @@ Sigue los siguientes pasos para clonar el repositorio, construir la imagen de Do
 git clone https://github.com/dipualo/app_reconocimiento_dorsales.git
 cd app_reconocimiento_dorsales
 docker build -t app_reconocedor_dorsales .
-docker run -it --rm app_reconocedor_dorsales
+docker run -rm -p 5000:5000 app_reconocedor_dorsales
 ```
 
 ## Autor y contacto
