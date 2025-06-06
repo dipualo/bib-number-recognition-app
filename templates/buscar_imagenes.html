@@ -27,11 +27,11 @@
             <img src="{{ url_for('static', filename = 'carpetas_imagenes/enviadas/'+image_bib.image) }}" alt="Imagen">
         {% endfor %}
     {% elif query%}
-        <p>No se encontraron imagenes con ese numero de dorsal.</p>
+        <p>No se encontraron imágenes con ese número de dorsal.</p>
     {% else %}
-        <p>Busca las imagenes por el número de dorsal</p>
+        <p>Busca las imágenes por el número de dorsal</p>
     {% endif %}
-    <p>Se observan los siguientes imagenes con los numeros de los dorsales <br> {% for image_bib in images_bibs %}  <li>{{ image_bib.image }} ({{ image_bib.bib_number }})</li>{% endfor %}</p>
+    <p>Se observan los siguientes imÁgenes acompañadas de cada número de dorsal predicho <br> {% for image_bib in images_bibs %}  <li>{{ image_bib.image }} ({{ image_bib.bib_number }})</li>{% endfor %}</p>
     <br><br>
 
 </body>
