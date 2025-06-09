@@ -21,9 +21,7 @@ with app.app_context():
 ruta_imagenes_enviadas='static/carpetas_imagenes/enviadas'
 
 for filename in os.listdir(ruta_imagenes_enviadas):
-    if filename == ".gitkeep":
-        continue  # Saltar este archivo
-
+    
     file_path = os.path.join(ruta_imagenes_enviadas, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
@@ -39,8 +37,6 @@ reconocedor_dorsales = ReconocedorDorsales()
 ruta_imagenes_anotadas='static/carpetas_imagenes/anotadas'
 
 for filename in os.listdir(ruta_imagenes_anotadas):
-    if filename == ".gitkeep":
-        continue  # Saltar este archivo
 
     file_path = os.path.join(ruta_imagenes_anotadas, filename)
     try:
