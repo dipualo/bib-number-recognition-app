@@ -24,7 +24,7 @@ En la pantalla de visualización, se muestran las predicciones generadas por el 
 ## Resultados
 
 Se ha utilizado utiliza para crear el modelo de reconocimiento de dorsales 904 imágenes con 1518 dorsales. Este modelo se ha creado usando YOLOv11n y paddleOCR y
-se alcanza un valor de F1-score de 0.828 en los conjuntos de test de un 3 k-fold. 
+se alcanza un valor de F1-score de 0,839 en los conjuntos de test de un 3 k-fold. 
 
 ## Requisitos
 
@@ -38,7 +38,7 @@ Sigue los siguientes pasos para clonar el repositorio, construir la imagen de Do
 git clone https://github.com/dipualo/app_reconocimiento_dorsales.git
 cd app_reconocimiento_dorsales
 docker build -t app_reconocedor_dorsales .
-docker run -rm -p 5000:5000 app_reconocedor_dorsales
+docker run -it --rm -p 5000:5000 app_reconocedor_dorsales
 ```
 
 ## Autor y contacto

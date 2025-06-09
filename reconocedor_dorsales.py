@@ -97,7 +97,7 @@ class ReconocedorDorsales:
                     
                 bib_number = "".join([c for c in bib_number if c.isdigit()])
 
-                if(len(bib_number)>0 and conf>0.4):
+                if(len(bib_number)>0 and conf>0.7):
                     bib_number = bib_number
                 else:
                     bib_number = "No reconocido"
