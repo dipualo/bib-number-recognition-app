@@ -7,8 +7,8 @@
 }
 
 #buscar_dorsal{
-    height: 25px;
-    width: 40%;
+    height: 3vh;
+    width: 30vw;
 }
 
 #boton_cancelar {
@@ -22,41 +22,38 @@
     background-color: #e74c3c;
 }
 
-#error-mensaje {
-    color: red;
+#mensaje{
+    margin: 0.4vh;
+    padding: 0px;
+    font-size: 0.9em;
 }
 
-#exito-mensaje {
-    color: green;
-}
-
-#error-mensaje, #exito-mensaje, #estado-mensaje {
+#estado-mensaje {
     display: none;
     font-size: 0.9em;
-    margin-top: 10px;
 }
-
 #cajagrande {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 30px;
-    margin-top: 40px;
-    width: 800px;
+    padding: 3vh;
+    margin: 3vh;
+    width: 55vw;
+    height: 65vh;
     text-align: center;
 }
 
 #archivo {
     border: 3px dashed #ccc;
     border-radius: 19px;
-    padding: 30px 20px;
+    padding: 1vh 1vw;
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transition: border-color 0.3s, background-color 0.3s;
-    min-height: 300px;
-    max-height: 800px;
+    min-height: 30vh;
+    max-height: 50vh;
     display: flex;
     flex-direction: column;
 }
@@ -72,8 +69,7 @@
 
 #preview-container {
     width: 100%;
-    max-width: 780px;
-    height: 430px; /* altura fija para contener imágenes */
+    height: 50vh; /* altura fija para contener imágenes */
     display: flex;
     flex-direction: row; 
     align-items: center;         

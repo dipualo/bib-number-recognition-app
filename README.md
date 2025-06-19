@@ -23,8 +23,7 @@ En la pantalla de visualización, se muestran las predicciones generadas por el 
 
 ## Resultados
 
-Se ha utilizado utiliza para crear el modelo de reconocimiento de dorsales 904 imágenes con 1518 dorsales. Este modelo se ha creado usando YOLOv11n y paddleOCR y
-se alcanza un valor de F1-score de 0,839 en los conjuntos de test de un 3 k-fold. 
+Para la creación del modelo de reconocimiento de dorsales se utilizaron 904 imágenes que contenían un total de 1.518 dorsales. El modelo fue desarrollado empleando YOLOv11n junto con PaddleOCR. En las pruebas realizadas con un esquema de validación cruzada de 3 particiones (3-fold), se obtuvo un valor de F1-score de 0,839 en los conjuntos de prueba.
 
 ## Requisitos
 

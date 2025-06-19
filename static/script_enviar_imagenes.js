@@ -50,9 +50,14 @@ function handleFile(files) {
         };
         reader.readAsDataURL(file);
     }
-
-    document.getElementById('error-mensaje').style.display = hayArchivoValido ? 'none' : 'block';
-    document.getElementById('exito-mensaje').style.display = hayArchivoValido ? 'block' : 'none';
+    if(hayArchivoValido){
+        document.getElementById('mensaje').textContent = "Imágenes cargadas correctamente";
+        document.getElementById('mensaje').style.color = "green";
+    }
+    else{
+        document.getElementById('mensaje').textContent = "Por favor, carga archivos en formato PNG, JPG o JPEG.";
+        document.getElementById('mensaje').style.color = "red";
+    }
 }
 
 
@@ -67,12 +72,9 @@ function enviarContenido(ev) {
 
     if (allImages.length == 0) {
         ev.preventDefault();
-        document.getElementById('error-mensaje').style.display = 'block';
-        document.getElementById('exito-mensaje').style.display = 'none';
     }
     else{
         document.getElementById('estado-mensaje').style.display = 'block';
-        document.getElementById('exito-mensaje').style.display = 'none';
     
         cajagrande.style.display = 'none';
         loadingScreen.style.display = 'block';
