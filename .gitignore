@@ -1,8 +1,8 @@
 .venv
 __pycache__
-static/carpetas_imagenes/enviadas/*
-!static/carpetas_imagenes/enviadas/.gitkeep
-static/carpetas_imagenes/anotadas/*
-!static/carpetas_imagenes/anotadas/.gitkeep
+static/image_folders/uploaded/*
+!static/image_folders/uploaded/.gitkeep
+static/image_folders/anotated/*
+!static/image_folders/anotated/.gitkeep
 .dockerignore
 instance/

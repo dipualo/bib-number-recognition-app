@@ -1,6 +1,6 @@
 const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 const previewContainer = document.getElementById('preview-container');
-const archivo = document.getElementById('archivo');
+const files = document.getElementById('files');
 const input = document.getElementById('input');
 const botonEnviar = document.getElementById('enviar');
 const cajagrande = document.getElementById('cajagrande');
@@ -10,14 +10,14 @@ let allImages = [];
 // Se activa cuando se pasa el raton por el dragover cambiando el color
 function allowDrop(ev) {
     ev.preventDefault();
-    archivo.classList.add('dragover');
+    files.classList.add('dragover');
 }
 
 // Se queda con los elementos soltados
 function drop(ev) {
 
     ev.preventDefault();
-    archivo.classList.remove('dragover');
+    files.classList.remove('dragover');
     
     const files = ev.dataTransfer.files;
     
@@ -30,16 +30,14 @@ function drop(ev) {
 //Comprueba con los ficheros son imagenes y se queda con la primera imagen
 function handleFile(files) {
 
-    //previewContainer.innerHTML = ''; // Limpiar previews anteriores
-
-    let hayArchivoValido = false;
+    let hayfilesValido = false;
 
     for (const file of files) {
         if (!validTypes.includes(file.type)) {
             continue;
         }
 
-        hayArchivoValido = true;
+        hayfilesValido = true;
         allImages.push(file); // Agregar a la lista acumulada
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -50,18 +48,18 @@ function handleFile(files) {
         };
         reader.readAsDataURL(file);
     }
-    if(hayArchivoValido){
-        document.getElementById('mensaje').textContent = "Imágenes cargadas correctamente";
+    if(hayfilesValido){
+        document.getElementById('mensaje').textContent = "Images uploaded successfully";
         document.getElementById('mensaje').style.color = "green";
     }
     else{
-        document.getElementById('mensaje').textContent = "Por favor, carga archivos en formato PNG, JPG o JPEG.";
+        document.getElementById('mensaje').textContent = "Please upload files in PNG, JPG, or JPEG format.";
         document.getElementById('mensaje').style.color = "red";
     }
 }
 
 
-document.getElementById('archivo').addEventListener('dragleave', function() {
+document.getElementById('files').addEventListener('dragleave', function() {
     this.classList.remove('dragover');
 });
 
@@ -86,12 +84,12 @@ function enviarContenido(ev) {
     
         console.log("Enviando imágenes:", allImages.map(file => file.name));
     
-        fetch('/enviar_imagenes', {
+        fetch('/upload_images', {
             method: 'POST',
             body: formData
         }).then(() => {
             // Redirige cuando termine
-            window.location.href = '/buscar_imagenes';
+            window.location.href = '/search_images';
           }).catch(err => {
             alert("Error al enviar imágenes");
             console.error(err);

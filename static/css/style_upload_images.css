@@ -43,7 +43,7 @@
     text-align: center;
 }
 
-#archivo {
+#files {
     border: 3px dashed #ccc;
     border-radius: 19px;
     padding: 1vh 1vw;
@@ -58,7 +58,7 @@
     flex-direction: column;
 }
 
-#archivo.dragover {
+#files.dragover {
     border-color: #3498db;
     background-color: #ecf7ff;
 }

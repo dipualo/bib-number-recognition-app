@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_search_images.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+</head>
+<body>
+
+    <div id="cabecera">
+        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="UVA Logo">
+        <h1>Search by Bib Numbers</h1>
+    </div>    
+    
+    <form method="GET" action="/search_images" id="search">
+        <input id="search_bib" type="int" name="query" placeholder="Search by bib number" value="{{ request.args.get('query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="links">
+        <a id="upload_images" href="{{ url_for('upload_images')}}">Upload Images</a>
+        <a id="view_images" href="{{ url_for('view_images')}}">View Predictions</a>
+    </div>
+
+    {% if images_with_that_bib %}
+        {% for image_bib in images_with_that_bib %}
+            <img src="{{ url_for('static', filename = 'image_folders/uploaded/' + image_bib.image) }}" alt="Image">
+        {% endfor %}
+    {% elif query %}
+        <p>No images found with that bib number.</p>
+    {% else %}
+        <p>Search for images by bib number.</p>
+    {% endif %}
+
+    <p>The following images are shown with their predicted bib numbers:<br> 
+    {% for image_bib in images_bibs %}  
+        <li>{{ image_bib.image }} ({{ image_bib.bib_number }})</li>
+    {% endfor %}
+    </p>
+
+    <br><br>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bib Number Recognitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_upload_images.css') }}">
+</head>
+<body>
+
+    <div id="cabecera">
+        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="Logo UVA">
+        <h1>Bib Number Recognitor</h1>
+    </div>
+    
+    <div id="loading-screen" style="display: none; text-align: center;">
+        <h2>Processing images...</h2>
+        <p>Please wait a few seconds per image uploaded</p>
+        <div class="spinner"></div>
+    </div>
+    <div id="cajagrande">
+        <form action="{{ url_for('upload_images') }}" method="post" enctype="multipart/form-data">
+            <div id="files" onclick="document.getElementById('input').click();" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <label id="drop_zone">Click or drag images here</label>
+                <input type="file" id="input" name="input" accept=".png, .jpg, .jpeg" multiple onchange="handleFile(this.files)">
+                <div id="preview-container"></div>
+            </div>
+            <div id="estado-mensaje">
+                <p id="estado">Procesing images</p>
+            </div>
+            <div id="mensaje">
+                  <p></p>
+            </div>
+            <div class="form-contenedor">
+                <button id = "enviar" onclick="enviarContenido(event);" >Send</button>
+                <a id="boton_buscar_dorsales" href = {{ url_for('search_images')}}>Search images</a>
+                <a id="view_images" href = {{ url_for('view_images')}}>View predictions</a>
+                <a id="boton_cancelar" href = {{ url_for('upload_images')}}>Cancel</a>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script_upload_images.js') }}"></script>
+</body>
+</html>

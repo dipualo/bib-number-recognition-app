@@ -10,7 +10,7 @@ img {
     display: block;
 }
 
-#enviar_imagenes, #buscar_imagenes{
+#upload_images, #search_images{
     margin: 10px;
     margin-left: 30px;
     margin-right: 30px;
