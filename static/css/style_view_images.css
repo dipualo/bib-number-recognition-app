@@ -16,16 +16,16 @@ img {
     margin-right: 30px;
 }
 
-#enlaces{
+#links{
     margin: 20px;
 }
 
 
-#imagenes_a_borrar{
+#images_to_delete{
     text-align: center;
 
 }
 
-#eliminar_seleccionadas{
+#delete_selected{
     text-align: center;
 }

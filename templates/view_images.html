@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Image Gallery</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_view_images.css') }}">
 </head>
 <body>
     
-    <div id="cabecera">
-        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="Logo UVA">
+    <div id="header">
         <h1>Image gallery</h1>
     </div>
-    <div id = "enlaces">
+    <div id = "links">
         <a id="upload_images" href = {{ url_for('upload_images')}}>Upload images</a>
         <a id="search_images" href = {{ url_for('search_images')}}>Search imagees</a>
     </div>
@@ -21,13 +20,13 @@
         <div class="imagen">
             <img src="{{ url_for('static', filename='image_folders/anotated/' + imagen) }}" alt="Imagen">
             <label>
-                <input type="checkbox" name="imagenes_a_borrar" value="{{ imagen }}">
+                <input type="checkbox" name="images_to_delete" value="{{ imagen }}">
                 Delete
             </label>
         </div>
         {% endfor %}
-        <div id="eliminar_seleccionadas">
-            <button type="submit">Delete selectedd</button>
+        <div id="delete_selected">
+            <button type="submit">Delete selected</button>
         </div>
     </form>
 </body>

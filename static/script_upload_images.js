@@ -2,8 +2,8 @@ const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 const previewContainer = document.getElementById('preview-container');
 const files = document.getElementById('files');
 const input = document.getElementById('input');
-const botonEnviar = document.getElementById('enviar');
-const cajagrande = document.getElementById('cajagrande');
+const botonsend = document.getElementById('send');
+const mainBox = document.getElementById('mainBox');
 const loadingScreen = document.getElementById('loading-screen');
 let allImages = [];
 
@@ -30,14 +30,14 @@ function drop(ev) {
 //Comprueba con los ficheros son imagenes y se queda con la primera imagen
 function handleFile(files) {
 
-    let hayfilesValido = false;
+    let thereIsaValidFile = false;
 
     for (const file of files) {
         if (!validTypes.includes(file.type)) {
             continue;
         }
 
-        hayfilesValido = true;
+        thereIsaValidFile = true;
         allImages.push(file); // Agregar a la lista acumulada
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -48,13 +48,13 @@ function handleFile(files) {
         };
         reader.readAsDataURL(file);
     }
-    if(hayfilesValido){
-        document.getElementById('mensaje').textContent = "Images uploaded successfully";
-        document.getElementById('mensaje').style.color = "green";
+    if(thereIsaValidFile){
+        document.getElementById('message').textContent = "Images uploaded successfully";
+        document.getElementById('message').style.color = "green";
     }
     else{
-        document.getElementById('mensaje').textContent = "Please upload files in PNG, JPG, or JPEG format.";
-        document.getElementById('mensaje').style.color = "red";
+        document.getElementById('message').textContent = "Please upload files in PNG, JPG, or JPEG format.";
+        document.getElementById('message').style.color = "red";
     }
 }
 
@@ -63,18 +63,18 @@ document.getElementById('files').addEventListener('dragleave', function() {
     this.classList.remove('dragover');
 });
 
-botonEnviar.addEventListener("click",enviarContenido);
+botonsend.addEventListener("click",sendContent);
 
-function enviarContenido(ev) {
+function sendContent(ev) {
 
 
     if (allImages.length == 0) {
         ev.preventDefault();
     }
     else{
-        document.getElementById('estado-mensaje').style.display = 'block';
+        document.getElementById('status-message').style.display = 'block';
     
-        cajagrande.style.display = 'none';
+        mainBox.style.display = 'none';
         loadingScreen.style.display = 'block';
       
         const formData = new FormData();
@@ -91,7 +91,7 @@ function enviarContenido(ev) {
             // Redirige cuando termine
             window.location.href = '/search_images';
           }).catch(err => {
-            alert("Error al enviar imágenes");
+            alert("Error al send imágenes");
             console.error(err);
             // Restaurar vista en caso de error
             loadingScreen.style.display = 'none';

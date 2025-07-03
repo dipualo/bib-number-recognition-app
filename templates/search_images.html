@@ -3,13 +3,12 @@
 <head>
     <title>Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_search_images.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common_style.css') }}">
 </head>
 <body>
 
-    <div id="cabecera">
-        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="UVA Logo">
-        <h1>Search by Bib Numbers</h1>
+    <div id="header">
+       <h1>Search by Bib Numbers</h1>
     </div>    
     
     <form method="GET" action="/search_images" id="search">

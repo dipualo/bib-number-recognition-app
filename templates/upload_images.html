@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Bib Number Recognitor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo_comun.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_upload_images.css') }}">
 </head>
 <body>
 
-    <div id="cabecera">
-        <img id="logo-img" src="{{ url_for('static', filename='logo_uva.png') }}" alt="Logo UVA">
+    <div id="header">
         <h1>Bib Number Recognitor</h1>
     </div>
     
@@ -18,24 +17,24 @@
         <p>Please wait a few seconds per image uploaded</p>
         <div class="spinner"></div>
     </div>
-    <div id="cajagrande">
+    <div id="mainBox">
         <form action="{{ url_for('upload_images') }}" method="post" enctype="multipart/form-data">
             <div id="files" onclick="document.getElementById('input').click();" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <label id="drop_zone">Click or drag images here</label>
                 <input type="file" id="input" name="input" accept=".png, .jpg, .jpeg" multiple onchange="handleFile(this.files)">
                 <div id="preview-container"></div>
             </div>
-            <div id="estado-mensaje">
-                <p id="estado">Procesing images</p>
+            <div id="status-message">
+                <p id="status">Procesing images</p>
             </div>
-            <div id="mensaje">
+            <div id="message">
                   <p></p>
             </div>
             <div class="form-contenedor">
-                <button id = "enviar" onclick="enviarContenido(event);" >Send</button>
-                <a id="boton_buscar_dorsales" href = {{ url_for('search_images')}}>Search images</a>
+                <button id = "send" onclick="sendContent(event);" >Send</button>
+                <a id="boton_search_bib_numberes" href = {{ url_for('search_images')}}>Search images</a>
                 <a id="view_images" href = {{ url_for('view_images')}}>View predictions</a>
-                <a id="boton_cancelar" href = {{ url_for('upload_images')}}>Cancel</a>
+                <a id="cancel_button" href = {{ url_for('upload_images')}}>Cancel</a>
             </div>
         </form>
     </div>

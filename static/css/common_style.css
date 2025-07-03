@@ -7,7 +7,7 @@ body {
     align-items: center;
 }
 
-#cabecera {
+#header {
     background-color: #2c3e50;
     color: white;
     width: 100%;
@@ -18,7 +18,7 @@ body {
     height: 125px;
 }
 
-#cabecera img#logo-img {
+#header img#logo-img {
     max-width: 125px;
     max-height: none;
 }

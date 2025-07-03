@@ -1,4 +1,4 @@
-#busqueda{
+#search{
     width: 80%;
     margin: 5px;
     display: flex;
@@ -6,12 +6,12 @@
     justify-content: center;
 }
 
-#buscar_dorsal{
+#search_bib_number{
     height: 3vh;
     width: 30vw;
 }
 
-#boton_cancelar {
+#cancel_button {
     color: white;
     border: none;
     padding: 10px 20px;
@@ -22,17 +22,17 @@
     background-color: #e74c3c;
 }
 
-#mensaje{
+#message{
     margin: 0.4vh;
     padding: 0px;
     font-size: 0.9em;
 }
 
-#estado-mensaje {
+#status-message {
     display: none;
     font-size: 0.9em;
 }
-#cajagrande {
+#mainBox {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);

@@ -16,7 +16,6 @@ with app.app_context():
     db.drop_all() 
     db.create_all()
 
-# Ruta a donde se almacenan las imagenes que se cargan
 ruta_imagenes_uploaded='static/image_folders/uploaded'
 
 for filename in os.listdir(ruta_imagenes_uploaded):
@@ -24,15 +23,14 @@ for filename in os.listdir(ruta_imagenes_uploaded):
     file_path = os.path.join(ruta_imagenes_uploaded, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
-            os.unlink(file_path)  # Borra filess o enlaces simbólicos
+            os.unlink(file_path)  
         elif os.path.isdir(file_path):
-            shutil.rmtree(file_path)  # Borra carpetas y su contenido
+            shutil.rmtree(file_path)  
     except Exception as e:
         print(f'Error eliminando {file_path}: {e}')
 
 bib_number_recognizer = BibNumberRecognizer()
 
-# Ruta a donde se almacenan las imagenes resultado
 ruta_imagenes_anotated='static/image_folders/anotated'
 
 for filename in os.listdir(ruta_imagenes_anotated):
@@ -40,13 +38,12 @@ for filename in os.listdir(ruta_imagenes_anotated):
     file_path = os.path.join(ruta_imagenes_anotated, filename)
     try:
         if os.path.isfile(file_path) or os.path.islink(file_path):
-            os.unlink(file_path)  # Borra filess o enlaces simbólicos
+            os.unlink(file_path)  
         elif os.path.isdir(file_path):
-            shutil.rmtree(file_path)  # Borra carpetas y su contenido
+            shutil.rmtree(file_path)  
     except Exception as e:
         print(f'Error eliminando {file_path}: {e}')
 
-# Si no existe ese path lo crea
 if(not os.path.exists(ruta_imagenes_uploaded)):
     os.mkdir(ruta_imagenes_uploaded)
 
@@ -74,13 +71,12 @@ def view_images():
 
 @app.route('/borrar', methods=['POST'])
 def borrar():
-    seleccionadas = request.form.getlist('imagenes_a_borrar')
+    seleccionadas = request.form.getlist('images_to_delete')
     for imagen in seleccionadas:
         ruta = os.path.join(ruta_imagenes_anotated, imagen)
         if os.path.exists(ruta):
             os.remove(ruta)
 
-        # Elimino el prediction_ de la imagen
         nombre_imagen = imagen[11:]
         Image_bib.query.filter_by(image=nombre_imagen).delete()
         db.session.commit()
@@ -93,7 +89,6 @@ def upload_images():
 
     if request.method == 'POST':
 
-        # Deberia de ir todo bien
         filess = request.files.getlist('images')
         nums_dorsales_imgs = []
 
@@ -109,14 +104,12 @@ def upload_images():
             except Exception as e:
                 print(f'Ocurrió un error al guardar la imagen: {e}')
             
-            # Pasarla al reconocedor de dorsales
             img_anotada, nums_dorsales = bib_number_recognizer.get_bib_number_annotations(imagen)
 
             for num in nums_dorsales:
                 nums_dorsales_imgs.append(num)
                 new_image_bib = Image_bib(image = filename, bib_number = num)
 
-                # Add to session and commit to DB
                 db.session.add(new_image_bib)
 
             db.session.commit()
